@@ -8,6 +8,7 @@ from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.kbd import Button, Url
 from aiogram_dialog.widgets.text import Const
 from aiogram_dialog import setup_dialogs
+from aiogram.client.session.aiohttp import AiohttpSession
 
 BOT_TOKEN = '7157534842:AAGuExWpdrTvidFSCi17FIFxOlnTwaHns'
 
@@ -40,6 +41,10 @@ dialog = Dialog(
             state=MySG.start,
         ),
 )
+
+session = AiohttpSession(proxy="http://proxy.server:3128")
+bot = Bot(token="bot token", session=session)
+
 
 dp.include_router(dialog)
 
